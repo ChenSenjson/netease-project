@@ -46,10 +46,13 @@ export default {
 <style lang="stylus">
 .footer-nav
   position fixed
-  bottom 8px
+  bottom 0px
   left 0
   width 100%
+  background-color #fff
+  padding-bottom 5px
   ul
+    padding-top 5px
     display flex
     font-size 22px
     li
