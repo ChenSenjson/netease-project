@@ -1,70 +1,9 @@
 <template>
-  <div class="home">
-    <header class="home-header">
-      <span>网易严选</span>
-      <p>
-        <van-icon name="search" />
-        <input
-          type="text"
-          placeholder="搜索商品"
-        />
-      </p>
-
-      <p
-        class="login"
-        @click="goto('/u')"
-      >登录</p>
-    </header>
-    <nav>
-      <div class="navs">
-        <van-tabs
-          sticky
-          offset-top=0px
-          type="line"
-          line-height="2"
-          title-active-color=red
-          scrollspy
-        >
-          <van-tab
-            class="nav-scroll-item"
-            title="标签 1"
-          >推荐</van-tab>
-          <van-tab title="标签 2">居家生活</van-tab>
-          <van-tab title="标签 3">服饰鞋包</van-tab>
-          <van-tab title="标签 4">美食酒水</van-tab>
-          <van-tab title="标签 5">个人清洁</van-tab>
-          <van-tab title="标签 6">母婴亲子</van-tab>
-          <van-tab title="标签 7">运动旅行</van-tab>
-          <van-tab title="标签 8">数码家电</van-tab>
-          <van-tab title="标签 9">全球特色</van-tab>
-        </van-tabs>
-      </div>
-      <p
-        class="nav-open"
-        @click="isNavShow"
-      >
-        <transition name="fade">
-          <van-icon name="arrow-down" />
-        </transition>
-        <ul
-          class="nav-list"
-          v-show="isShow"
-          @click.stop=""
-        >
-          <li>推荐</li>
-          <li>居家生活</li>
-          <li>服饰鞋包</li>
-          <li>美食酒水</li>
-          <li>个人清洁</li>
-          <li>母婴亲子</li>
-          <li>运动旅行</li>
-          <li>数码家电</li>
-          <li>全球特色</li>
-        </ul>
-
-      </p>
-
-    </nav>
+  <div
+    class="home"
+    v-if="homeDate.kingKongModule"
+  >
+    <Header />
     <van-swipe
       class="my-swipe"
       :autoplay="3000"
@@ -80,97 +19,28 @@
       <van-swipe-item><img src="https://yanxuan.nosdn.127.net/d46d2fd850b9a660eca68028fe974bb0.jpg?type=webp&imageView&quality=75&thumbnail=750x0"></van-swipe-item>
     </van-swipe>
 
-    <van-overlay
-      :show="maskShow"
-      @click="mask"
-    />
     <!-- 首页内容 -->
     <div class="home-content">
       <div class="content-icon">
-        <div>
-          <p class="icon1"></p><span>网易自营品牌</span>
-        </div>
-        <div>
-          <p class="icon2"></p><span>30天无忧退货
-          </span>
-        </div>
-        <div>
-          <p class="icon3"></p><span>48小时快速退款</span>
+        <div
+          v-for="(item,index) in homeDate.policyDescList"
+          :key="index"
+        >
+          <p class="icon1"></p><span>{{item.desc}}</span>
         </div>
 
       </div>
       <div class="content-category">
         <ul>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
+          <li
+            v-for="(item,index) in homeDate.kingKongModule.kingKongList"
+            :key="index"
+          ><a :href="item.schemeUrl">
+              <p><img :src="item.picUrl"></p>
+              <span>{{item.text}}</span>
+            </a>
           </li>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
-          </li>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
-          </li>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
-          </li>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
-          </li>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
-          </li>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
-          </li>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
-          </li>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
-          </li>
-          <li>
-            <p><img
-                src="https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png"
-                alt=""
-              ></p>
-            <span>新品首发</span>
-          </li>
+
         </ul>
       </div>
       <div class="mask-appointment">
@@ -195,167 +65,61 @@
             >
           </div>
           <div class="welfare">
+            <a :href="homeDate.indexActivityModule[0].targetUrl">
+              <div>
 
-            <div>
-              <p>福利社</p>
-              <span>今日特价</span>
-            </div>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/5f93a1f774805b452a889511e40d78fa.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
+                <p>{{homeDate.indexActivityModule[0].title}}</p>
+                <span>{{homeDate.indexActivityModule[0].subTitle}}</span>
+              </div>
+              <img
+                :src="homeDate.indexActivityModule[0].showPicUrl"
+                alt=""
+              />
+            </a>
           </div>
           <div class="spell-list">
-            <p>新人拼团</p>
-            <p>1元起包邮</p>
+            <p>{{homeDate.indexActivityModule[1].title}}</p>
+            <p>{{homeDate.indexActivityModule[1].tag}}</p>
           </div>
         </div>
 
       </div>
 
-      <!-- //类目热销榜 -->
-      <div class="popular">
-        <p class="popular-title">类目热销榜</p>
+      <!-- //类目热销榜   有问题popularTwo-->
+      <div
+        class="popular"
+        v-if="popularTwo[0].categoryName && popularOne[0].categoryName"
+      >
+        <p class="popular-title">{{homeDate.categoryHotSellModule.title}}</p>
         <div class="first-list">
           <div class="left">
             <div>
-              <p>热销榜</p>
+              <p>{{popularOne[0].categoryName}}</p>
               <p class="line"></p>
             </div>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/644a27b8e168b8fe8e43ccaad934b24e.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
+            <img :src="popularOne[0].showPicUrl">
           </div>
           <div class="right">
             <div>
-              <p>热销榜</p>
+              <p>{{popularOne[1].categoryName}}</p>
               <p class="line"></p>
             </div>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/e58f23ee17f896fe485b4f18ef58dac1.jpg?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
+            <img :src="popularOne[1].showPicUrl">
           </div>
         </div>
         <ul class="popular-list">
-          <li>
-            <span>居家生活榜</span>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/9a33f08a3b0f5c06fdf4c586d51b2f7c.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
-          </li>
-          <li>
-            <span>居家生活榜</span>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/9a33f08a3b0f5c06fdf4c586d51b2f7c.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
-          </li>
-          <li>
-            <span>居家生活榜</span>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/9a33f08a3b0f5c06fdf4c586d51b2f7c.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
-          </li>
-          <li>
-            <span>居家生活榜</span>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/9a33f08a3b0f5c06fdf4c586d51b2f7c.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
-          </li>
-          <li>
-            <span>居家生活榜</span>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/9a33f08a3b0f5c06fdf4c586d51b2f7c.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
-          </li>
-          <li>
-            <span>居家生活榜</span>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/9a33f08a3b0f5c06fdf4c586d51b2f7c.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
-          </li>
-          <li>
-            <span>居家生活榜</span>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/9a33f08a3b0f5c06fdf4c586d51b2f7c.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
-          </li>
-          <li>
-            <span>居家生活榜</span>
-            <img
-              src="https://yanxuan-item.nosdn.127.net/9a33f08a3b0f5c06fdf4c586d51b2f7c.png?quality=75&type=webp&imageView&thumbnail=200x200"
-              alt=""
-            >
+          <li
+            v-for="(item,index) in popularTwo"
+            :key=index
+          ><a :href="item.targetUrl">
+              <span>{{item.categoryName}}</span>
+              <img :src="item.showPicUrl">
+            </a>
+
           </li>
         </ul>
       </div>
-      <!-- 限时购 -->
-      <div class="limit">
-        <div class="limit-title">
-          <div>
-            <span>限时购</span>
-            <van-count-down :time="time">
-              <template v-slot="timeData">
-                <span class="item">{{ timeData.hours }}</span>&#58;
-                <span class="item">{{ timeData.minutes }}</span>&#58;
-                <span class="item">{{ timeData.seconds }}</span>
-              </template>
-            </van-count-down>
-          </div>
-
-          <span class="more">更多></span>
-        </div>
-        <van-grid
-          :border="false"
-          :column-num="3"
-          icon-size="108"
-        >
-          <van-grid-item>
-            <van-image src="https://yanxuan-item.nosdn.127.net/c35240dc88a30c7fb569bbca843f5e1a.png?quality=75&type=webp&imageView&thumbnail=216x216" />
-            <p class="describe">告别桌面沙发尘屑毛发，mini桌面吸尘器</p>
-            <p><span class="new">￥156</span> <span class="old">265</span></p>
-
-          </van-grid-item>
-          <van-grid-item>
-            <van-image src="https://yanxuan-item.nosdn.127.net/c35240dc88a30c7fb569bbca843f5e1a.png?quality=75&type=webp&imageView&thumbnail=216x216" />
-            <p class="describe">告别桌面沙发尘屑毛发，mini桌面吸尘器</p>
-            <p><span class="new">￥156</span> <span class="old">265</span></p>
-
-          </van-grid-item>
-          <van-grid-item>
-            <van-image src="https://yanxuan-item.nosdn.127.net/c35240dc88a30c7fb569bbca843f5e1a.png?quality=75&type=webp&imageView&thumbnail=216x216" />
-            <p class="describe">告别桌面沙发尘屑毛发，mini桌面吸尘器</p>
-            <p><span class="new">￥156</span> <span class="old">265</span></p>
-
-          </van-grid-item>
-          <van-grid-item>
-            <van-image src="https://yanxuan-item.nosdn.127.net/c35240dc88a30c7fb569bbca843f5e1a.png?quality=75&type=webp&imageView&thumbnail=216x216" />
-            <p class="describe">告别桌面沙发尘屑毛发，mini桌面吸尘器</p>
-            <p><span class="new">￥156</span> <span class="old">265</span></p>
-
-          </van-grid-item>
-          <van-grid-item>
-            <van-image src="https://yanxuan-item.nosdn.127.net/c35240dc88a30c7fb569bbca843f5e1a.png?quality=75&type=webp&imageView&thumbnail=216x216" />
-            <p class="describe">告别桌面沙发尘屑毛发，mini桌面吸尘器</p>
-            <p><span class="new">￥156</span> <span class="old">265</span></p>
-
-          </van-grid-item>
-          <van-grid-item>
-            <van-image src="https://yanxuan-item.nosdn.127.net/c35240dc88a30c7fb569bbca843f5e1a.png?quality=75&type=webp&imageView&thumbnail=216x216" />
-            <p class="describe">告别桌面沙发尘屑毛发，mini桌面吸尘器</p>
-            <p><span class="new">￥156</span> <span class="old">265</span></p>
-
-          </van-grid-item>
-        </van-grid>
-      </div>
+      <Gshop />
     </div>
     <!-- 尾部 -->
     <footer class="foot">
@@ -374,46 +138,67 @@
 
 <script>
 import Vue from 'vue';
-import { Swipe, SwipeItem, Tab, Tabs, Overlay, CountDown, Grid, GridItem, Image, Button } from 'vant';
+import { Swipe, SwipeItem, CountDown, Grid, GridItem, Image, Button } from 'vant';
 
 Vue.use(Swipe)
 Vue.use(SwipeItem)
-Vue.use(Tab)
-Vue.use(Overlay)
-Vue.use(Tabs)
 Vue.use(CountDown)
 Vue.use(Grid)
 Vue.use(GridItem)
 Vue.use(Image)
 Vue.use(Button)
 // import HelloWorld from './components/HelloWorld.vue'
+
+import Header from '../../components/Header'
+import Gshop from '../../components/Gshop/'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   data () {
     return {
-      maskShow: false,
-      isShow: false,
-      time: 30 * 60 * 60 * 1000
+      // maskShow: false,
+
+      limit: [],
+      data: {},
+      popularOne: [],
+      popularTwo: []
     }
+  },
+
+
+  async mounted () {
+    await this.$store.dispatch('getHomedate')
+
+    this.$nextTick(() => {
+      const a = this.$store.state.homeDate.categoryHotSellModule.categoryList
+      const b = this.$store.state.homeDate.categoryHotSellModule.categoryList
+      this.popularOne = a.slice(0, 2)
+      this.popularTwo = b.slice(2, 10)
+    })
+
+
+
+
+  },
+  computed: {
+    ...mapState(['homeDate'])
+
+
+
+
   },
 
 
   components: {
-
+    Header,
+    Gshop
   },
   methods: {
-    goto (path) {
-      this.$router.replace(path)
+    populaArr () {
 
-    },
-    isNavShow () {
-      this.isShow = !this.isShow
-      this.maskShow = this.isShow
-    },
-    mask () {
-      this.maskShow = false
-      this.isShow = !this.isShow
     }
+
+
   }
 }
 </script>
@@ -424,95 +209,6 @@ export default {
   height 100%
   width 100%
   position relative
-  .home-header
-    position relative
-    z-index 99
-    background-color #fff
-    padding 5px 0 0 0
-    width 100%
-    display flex
-    align-items center
-    justify-content center
-    font-size 20px
-    padding-bottom 5px
-    span
-      font-family '楷体'
-      font-weight 600
-      width 25%
-    p:nth-child(2)
-      color #333
-      padding-left 20px
-      display flex
-      align-items center
-      width 50%
-      background-color #EDEDED
-      height 30px
-      border-radius 5px
-      input
-        width 70%
-        padding-left 10px
-        background-color #EDEDED
-        font-size 15px
-    p:nth-child(3)
-      width 15%
-      color red
-      width 36px
-      height 19px
-      font-size 12px
-      text-align center
-      line-height 20px
-      border 1px red solid
-      border-radius 6px
-      margin-left 10px
-  nav
-    z-index 99
-    display flex
-    align-items center
-    justify-content center
-    width 100%
-    background-color #fff
-    height 30px
-    position relative
-    .navs
-      width 85%
-      height 100%
-      background-color red
-      overflow hidden
-      .nav-scroll
-        margin-top 100px
-        .van-tab.van-ellipsis
-          padding 1px 1px !important
-    .nav-open
-      height 100%
-      width 15%
-      font-size 20px
-      text-align center
-      line-height 30px
-      .nav-list
-        padding 20px 0 0 0
-        position absolute
-        top 30px
-        left 0
-        display flex
-        justify-content space-between
-        flex-direction row
-        flex-wrap wrap
-        z-index 100
-        color #000
-        font-size 12px
-        width 100%
-        background-color #fff
-        li
-          border 1px solid #ddd
-          width 73px
-          height 26px
-          line-height 26px
-          text-align center
-          flex-wrap warn
-          margin 0 0 20px 15px
-          background-color #fafafa
-        li:nth-child(8), li:nth-child(4)
-          margin-right 15px
   .my-swipe
     width 100%
     height 187.5px
@@ -700,41 +396,21 @@ export default {
         flex-wrap wrap
         justify-content space-between
         li
-          width 82px
-          height 90px
           background-color #eee
-          display flex
-          flex-direction column
-          justify-content center
-          align-items center
-          span
-            font-size 14px
-          img
-            width 60px
-            height 60px
+          a
+            width 82px
+            height 90px
+            display flex
+            flex-direction column
+            justify-content center
+            align-items center
+            span
+              font-size 14px
+            img
+              width 60px
+              height 60px
         li:nth-child(n+5)
           margin-top 10px
-    .limit
-      width 92%
-      padding 10px 4%
-      background-color #ffffff
-      margin 10px 0
-      .limit-title
-        font-size 16px
-        display flex
-        justify-content space-between
-        div
-          display flex
-          span
-            margin-right 10px
-      .new
-        font-size 16px
-        color red
-      .old
-        font-size 12px
-        text-decoration line-through
-      .describe
-        font-size 12px
   .foot
     height 122px
     background-color #414141
@@ -767,5 +443,7 @@ export default {
   background-color #333333
 .van-image
   background-color #eee
+.van-swipe__indicator
+  width 20px
+  height 3px
 </style>
-<style lang="stylus"></style>

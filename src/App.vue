@@ -37,6 +37,7 @@ export default {
     width 100%
     height 52px
     position relative
+    z-index 99
     p
       position absolute
       left 0

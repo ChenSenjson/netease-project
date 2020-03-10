@@ -1,0 +1,1 @@
+export const REVEIVE_HOME = 'reveive_home'
