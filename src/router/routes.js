@@ -3,6 +3,10 @@ import Item from '../pages/Item/index.vue'
 import Topic from '../pages/Topic/index.vue'
 import Cart from '../pages/Cart/index.vue'
 import U from '../pages/U/index.vue'
+//二级路由
+import List from '../pages/Item/Lists/List.vue'
+import CateList from '../pages/Item/Lists/CateList.vue'
+
 
 export default [{
     path: '/home',
@@ -10,7 +14,15 @@ export default [{
   },
   {
     path: '/item',
-    component: Item
+    component: Item,
+    children: [{
+      path: 'list',
+      component: List
+
+    }, {
+      path: 'cateList',
+      component: CateList
+    }]
   },
   {
     path: '/topic',

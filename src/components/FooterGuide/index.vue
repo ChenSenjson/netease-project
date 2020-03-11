@@ -6,10 +6,10 @@
           name="wap-home-o"
           :class="{on:$route.path === '/home'}"
         /> <span>首页</span> </li>
-      <li @click="goto('/item')">
+      <li @click="goto('/item/cateList')">
         <van-icon
           name="apps-o"
-          :class="{on:$route.path === '/item'}"
+          :class="{on:$route.path === '/item/cateList'}"
         /><span>分类</span></li>
       <li @click="goto('/topic')">
         <van-icon

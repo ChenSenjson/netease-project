@@ -1,5 +1,8 @@
 <template>
-  <div class="head">
+  <div
+    class="head"
+    v-if="isList"
+  >
     <header class="home-header">
       <span>网易严选</span>
       <p>
@@ -24,16 +27,44 @@
           line-height="3px"
           line-width='30'
           title-active-color=red
+          @click="getCategoryId"
         >
-          <van-tab title="推荐">推荐</van-tab>
-          <van-tab title="居家生活">居家生活</van-tab>
-          <van-tab title="服饰鞋包">服饰鞋包</van-tab>
-          <van-tab title="美食酒水">美食酒水</van-tab>
-          <van-tab title="个人清洁">个人清洁</van-tab>
-          <van-tab title="母婴亲子">母婴亲子</van-tab>
-          <van-tab title="运动旅行">运动旅行</van-tab>
-          <van-tab title="数码家电">数码家电</van-tab>
-          <van-tab title="全球特色">全球特色</van-tab>
+          <van-tab
+            title="推荐"
+            to="/"
+          >推荐</van-tab>
+          <van-tab
+            title="居家生活"
+            name="1005000"
+          >居家生活</van-tab>
+          <van-tab
+            title="服饰鞋包"
+            name="1010000"
+          >服饰鞋包</van-tab>
+          <van-tab
+            title="美食酒水"
+            name="1005002"
+          >美食酒水</van-tab>
+          <van-tab
+            title="个人清洁"
+            name="1013001"
+          >个人清洁</van-tab>
+          <van-tab
+            title="母婴亲子"
+            name="1011000"
+          >母婴亲子</van-tab>
+          <van-tab
+            title="运动旅行"
+            name="109243029"
+          >运动旅行</van-tab>
+          <van-tab
+            title="数码家电"
+            name="1043000"
+          >数码家电</van-tab>
+          <van-tab
+            title="全球特色"
+            name="1019000"
+          >全球特色</van-tab>
         </van-tabs>
       </div>
       <p
@@ -46,7 +77,6 @@
         <ul
           class="nav-list"
           v-show="isShow"
-          @click.stop=""
         >
           <li>推荐</li>
           <li>居家生活</li>
@@ -67,14 +97,24 @@
       @click="mask"
     />
   </div>
+
+  <div v-else>
+    <van-search
+      v-model="value"
+      placeholder="搜索商品,共3308件好物"
+      input-align="center"
+    />
+  </div>
 </template>
+
 
 <script>
 import Vue from 'vue'
-import { Tab, Tabs, Overlay } from 'vant'
+import { Tab, Tabs, Overlay, Search } from 'vant'
 Vue.use(Tabs)
 Vue.use(Tab)
 Vue.use(Overlay)
+Vue.use(Search)
 
 export default {
   name: 'Header',
@@ -82,6 +122,7 @@ export default {
     return {
       maskShow: false,
       isShow: false,
+      isList: true
     }
   },
   methods: {
@@ -93,11 +134,24 @@ export default {
       this.maskShow = false
       this.isShow = !this.isShow
     },
+
     goto (path) {
-      this.$router.replace(path)
+      if (this.route.path !== path) {
+        this.$router.replace(path)
+      }
+    },
+    getCategoryId (name, title) {
+      console.log(name, title)
+      this.$router.push('/item/list')
 
     }
 
+
+  },
+  mounted () {
+    if (this.$route.path === '/item/cateList') {
+      this.isList = false
+    }
   }
 
 }
@@ -194,8 +248,13 @@ export default {
         li:nth-child(8), li:nth-child(4)
           margin-right 15px
 </style>
+
+
 <style lang="stylus">
 .van-tabs__nav.van-tabs__nav--line
   margin-top -8px
   padding-bottom 8px
+.van-field__left-icon
+  margin-left 83px
+  margin-right -69px
 </style>

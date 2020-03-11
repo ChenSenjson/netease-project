@@ -1,17 +1,16 @@
 <template>
   <div>
-    <Header />
-    <router-view />
+    cateList
   </div>
 </template>
 
 <script>
-import Header from '../../components/Header/index'
 export default {
-  name: 'Item',
+  name: 'CateList',
   components: {
-    Header
-  }
+
+  },
+  
 }
 </script>
 
