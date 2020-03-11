@@ -96,15 +96,19 @@
       :show="maskShow"
       @click="mask"
     />
-  </div>
 
-  <div v-else>
+  </div>
+  <div
+    class="search"
+    v-else
+  >
     <van-search
       v-model="value"
       placeholder="搜索商品,共3308件好物"
       input-align="center"
     />
   </div>
+
 </template>
 
 
@@ -122,7 +126,8 @@ export default {
     return {
       maskShow: false,
       isShow: false,
-      isList: true
+      isList: true,
+      value: ''
     }
   },
   methods: {
@@ -141,8 +146,11 @@ export default {
       }
     },
     getCategoryId (name, title) {
+      //头部导航  的  参数传给 /item/list
       console.log(name, title)
-      this.$router.push('/item/list')
+      this.$router.push({
+        path: `/item/list/${name}`
+      })
 
     }
 
@@ -151,6 +159,7 @@ export default {
   mounted () {
     if (this.$route.path === '/item/cateList') {
       this.isList = false
+
     }
   }
 
@@ -158,6 +167,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.search
+  position relative
+  z-index 99
 .head
   .home-header
     position relative

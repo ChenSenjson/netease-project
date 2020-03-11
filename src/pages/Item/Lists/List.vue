@@ -66,19 +66,15 @@ export default {
   name: 'List',
   components: {
     // Header
+  },
+  mounted () {
+
+    // console.log(this.$route.params.id);
+
   }
 }
 </script>
 
-<style lang="stylus" scoped>
-.my-swipe .van-swipe-item
-  color #fff
-  font-size 20px
-  text-align center
-  img
-    height 185px
-    width 100%
-</style>
 
 <style lang="stylus" scoped>
 .list
@@ -105,7 +101,7 @@ export default {
       a
         color #000
         margin 0
-        padding 0 
+        padding 0
         margin-bottom -20px
         display flex
         flex-direction column
@@ -141,4 +137,15 @@ export default {
         border-radius 8px
         color red
         margin-top -100px
+</style>
+
+
+<style lang="stylus" scoped>
+.my-swipe .van-swipe-item
+  color #fff
+  font-size 20px
+  text-align center
+  img
+    height 185px
+    width 100%
 </style>

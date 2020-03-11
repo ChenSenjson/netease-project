@@ -16,7 +16,7 @@ export default [{
     path: '/item',
     component: Item,
     children: [{
-      path: 'list',
+      path: 'list/:id',
       component: List
 
     }, {

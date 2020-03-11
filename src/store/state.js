@@ -1,5 +1,7 @@
-export default{
+export default {
   //首页数据
-  homeDate:{}
+  homeDate: {},
 
+  //居家生活的数据
+  lifeDate: {}
 }

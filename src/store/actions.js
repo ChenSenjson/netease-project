@@ -1,8 +1,10 @@
 import {
-  reqHomeDate
+  reqHomeDate,
+  reqLifeDate
 } from '../api/index'
 import {
-  REVEIVE_HOME
+  REVEIVE_HOME,
+  REVEIVE_LIFEDATE
 } from '../store/mutation-type'
 
 export default {
@@ -15,8 +17,23 @@ export default {
       const homeDate = result.date
       //  向mutations提交数据
       // console.log(homeDate);
-      
+
       commit(REVEIVE_HOME, homeDate)
+    }
+  },
+
+  async getLifeDate({
+    commit
+  },cateId) {
+    // console.log(cateId);
+    
+    
+    const result = await reqLifeDate(cateId)
+    if (result.code === 0) {
+      const lifeDate = result.date
+
+      commit(REVEIVE_LIFEDATE, lifeDate)
+
     }
   }
 }

@@ -169,13 +169,12 @@ export default {
   async mounted () {
     await this.$store.dispatch('getHomedate')
 
-    this.$nextTick(() => {
+    setTimeout(() => {
       const a = this.$store.state.homeDate.categoryHotSellModule.categoryList
       const b = this.$store.state.homeDate.categoryHotSellModule.categoryList
       this.popularOne = a.slice(0, 2)
       this.popularTwo = b.slice(2, 10)
-    })
-
+    }, 1000)
 
 
 

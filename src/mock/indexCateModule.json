@@ -1,5 +1,4 @@
-[
-    {
+[{
         "categoryType": 0,
         "imgUrl": "",
         "showIndex": 0,
@@ -8,8 +7,8 @@
         "name": "居家生活",
         "id": 1005000,
         "type": 0,
-        "subCateList": [
-            {
+        "imgurl": "https://yanxuan.nosdn.127.net/761877bc4e2cf50d7c424a8a7e6378bf.jpg?quality=75&type=webp&imageView&thumbnail=0x196",
+        "subCateList": [{
                 "categoryType": 0,
                 "showIndex": 1,
                 "superCategoryId": 1005000,
@@ -450,8 +449,8 @@
         "name": "服饰鞋包",
         "id": 1010000,
         "type": 0,
-        "subCateList": [
-            {
+        "imgurl": "https://yanxuan.nosdn.127.net/edc311882c97da117f860264548212e1.png?quality=75&type=webp&imageView&thumbnail=0x196",
+        "subCateList": [{
                 "categoryType": 0,
                 "showIndex": 1,
                 "superCategoryId": 1010000,
@@ -1177,8 +1176,8 @@
         "name": "美食酒水",
         "id": 1005002,
         "type": 0,
-        "subCateList": [
-            {
+        "imgurl": "https://yanxuan.nosdn.127.net/a657e5214585b1825b7970c4b956e3c2.jpg?quality=75&type=webp&imageView&thumbnail=0x196",
+        "subCateList": [{
                 "showIndex": 1,
                 "level": "L2",
                 "wapBannerUrl": "https://yanxuan.nosdn.127.net/85bf41ca68dc4fe79892344af5887e56.png",
@@ -1553,8 +1552,8 @@
         "name": "个护清洁",
         "id": 1013001,
         "type": 0,
-        "subCateList": [
-            {
+        "imgurl": "https://yanxuan.nosdn.127.net/0cf6e47037b7cc7688ec9845b543525f.jpg?quality=75&type=webp&imageView&thumbnail=0x196",
+        "subCateList": [{
                 "categoryType": 0,
                 "showIndex": 1,
                 "superCategoryId": 1013001,
@@ -1972,8 +1971,8 @@
         "name": "母婴亲子",
         "id": 1011000,
         "type": 0,
-        "subCateList": [
-            {
+        "imgurl": "https://yanxuan.nosdn.127.net/8b27123a11a46a3ae45cabf2a04760ef.png?quality=75&type=webp&imageView&thumbnail=375x0",
+        "subCateList": [{
                 "categoryType": 0,
                 "showIndex": 1,
                 "superCategoryId": 1011000,
@@ -2454,8 +2453,8 @@
         "name": "运动旅行",
         "id": 109243029,
         "type": 0,
-        "subCateList": [
-            {
+        "imgurl": "https://yanxuan.nosdn.127.net/a657e5214585b1825b7970c4b956e3c2.jpg?quality=75&type=webp&imageView&thumbnail=0x196",
+        "subCateList": [{
                 "categoryType": 0,
                 "showIndex": 1,
                 "superCategoryId": 109243029,
@@ -2901,6 +2900,7 @@
         ]
     },
     {
+        "imgurl": "https://yanxuan.nosdn.127.net/a657e5214585b1825b7970c4b956e3c2.jpg?quality=75&type=webp&imageView&thumbnail=0x196",
         "categoryType": 0,
         "imgUrl": "",
         "showIndex": 0,
@@ -2909,8 +2909,7 @@
         "name": "数码家电",
         "id": 1043000,
         "type": 0,
-        "subCateList": [
-            {
+        "subCateList": [{
                 "categoryType": 0,
                 "showIndex": 1,
                 "superCategoryId": 1043000,
@@ -3204,6 +3203,8 @@
         ]
     },
     {
+        "imgurl": "https://yanxuan.nosdn.127.net/a657e5214585b1825b7970c4b956e3c2.jpg?quality=75&type=webp&imageView&thumbnail=0x196",
+
         "categoryType": 0,
         "imgUrl": "",
         "showIndex": 0,
@@ -3212,8 +3213,7 @@
         "name": "全球特色",
         "id": 1019000,
         "type": 0,
-        "subCateList": [
-            {
+        "subCateList": [{
                 "showIndex": 1,
                 "level": "L2",
                 "wapBannerUrl": "https://yanxuan.nosdn.127.net/70ae2b665302d78224b2e209d32f6454.jpg",
