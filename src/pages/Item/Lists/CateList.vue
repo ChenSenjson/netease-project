@@ -31,12 +31,9 @@
 
       </van-sidebar>
     </div>
-    <div
-      class="right"
-      ref="scrollRight"
-    >
+    <div class="right">
       <div class="first-img"><img :src="lifeDate.imgurl"></div>
-      <ul>
+      <ul ref="scrollRight">
         <li>
           <p class="title">{{lifeDate.name}}</p>
           <ul>
@@ -88,23 +85,35 @@ export default {
     this.init()
     this._init()
   },
+
   methods: {
+    // better-scroll滚动 设置
+
     init () {
       this.bs = new BScroll(this.$refs.scroll, {
         click: true,
-        probeType: 3 // listening scroll hook
-      })
+        probeType: 2 // listening scroll hook
+      }),
+        this.ps = new BScroll(this.$refs.scrollRight, {
+          click: true,
+          probeType: 3 // listening scroll hook
+        })
+        // this.ps.on('scrollEnd', ({ x, y }) => {
+        //   console.log(y);
+
+        // })
+
     },
-    // _init () {
-    //   this.bs = new BScroll(this.$refs.scrollRight, {
-    //     click: true,
-    //     probeType: 3 // listening scroll hook
-    //   })
-    // },
+    // 请求menu导航数据
     async menu (cateId) {
       console.log(cateId);
       await this.$store.dispatch('getLifeDate', cateId)
       console.log('cate', cateId);
+
+      //数据请求完   再次调用  （高度发生了变化）
+      setTimeout(() => {
+        this.init()
+      }, 100)
 
 
     }
@@ -124,15 +133,19 @@ export default {
     width 85px
     height 500px
   .right
+    padding-bottom 300px
     width 270px
     padding 10px
     height 500px
     background-color #fff
     .first-img
+      position relative
+      z-index 99
+      background-color #fff
       img
         width 270px
     ul
-      // height 400px
+      height 500px
       li
         width 100%
         .title

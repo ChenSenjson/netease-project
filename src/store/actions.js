@@ -1,10 +1,12 @@
 import {
   reqHomeDate,
-  reqLifeDate
+  reqLifeDate,
+  reqTopicDate
 } from '../api/index'
 import {
   REVEIVE_HOME,
-  REVEIVE_LIFEDATE
+  REVEIVE_LIFEDATE,
+  REVEIVE_TOPIC
 } from '../store/mutation-type'
 
 export default {
@@ -24,10 +26,10 @@ export default {
 
   async getLifeDate({
     commit
-  },cateId) {
+  }, cateId) {
     // console.log(cateId);
-    
-    
+
+
     const result = await reqLifeDate(cateId)
     if (result.code === 0) {
       const lifeDate = result.date
@@ -35,5 +37,16 @@ export default {
       commit(REVEIVE_LIFEDATE, lifeDate)
 
     }
-  }
+  },
+  async getTopicDate({commit}) {
+
+    const result = await reqTopicDate()
+    if (result.code === 0) {
+      const topicDate = result.date
+
+      commit(REVEIVE_TOPIC, topicDate)
+
+    }
+  },
+
 }

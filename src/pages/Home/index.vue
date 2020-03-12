@@ -119,6 +119,7 @@
           </li>
         </ul>
       </div>
+      
       <Gshop />
     </div>
     <!-- 尾部 -->
@@ -411,6 +412,8 @@ export default {
         li:nth-child(n+5)
           margin-top 10px
   .foot
+    position relative
+    bottom 0
     height 122px
     background-color #414141
     padding-top 30px

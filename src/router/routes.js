@@ -10,27 +10,45 @@ import CateList from '../pages/Item/Lists/CateList.vue'
 
 export default [{
     path: '/home',
-    component: Home
+    component: Home,
+    meta: {
+      isShowFooter: true
+    }
   },
   {
     path: '/item',
     component: Item,
+    meta: {
+      isShowFooter: true
+    },
     children: [{
       path: 'list/:id',
-      component: List
+      component: List,
+      meta: {
+        isShowFooter: true
+      }
 
     }, {
       path: 'cateList',
-      component: CateList
+      component: CateList,
+      meta: {
+        isShowFooter: true
+      }
     }]
   },
   {
     path: '/topic',
-    component: Topic
+    component: Topic,
+    meta: {
+      isShowFooter: true
+    },
   },
   {
     path: '/cart',
-    component: Cart
+    component: Cart,
+    meta: {
+      isShowFooter: true
+    },
   },
   {
     path: '/u',

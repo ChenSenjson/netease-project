@@ -14,3 +14,8 @@ export const reqLifeDate = (cateId) => ajax({
 
   url: BASE + `/item/cateList?categoryId=${cateId}`
 })
+
+export const reqTopicDate = () => ajax({
+  method: 'GET',
+  url: BASE + `/topic`
+})

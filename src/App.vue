@@ -12,7 +12,7 @@
         ></a>
     </div>
     <router-view />
-    <FooterGuide />
+    <FooterGuide v-show="$route.meta.isShowFooter" />
   </div>
 </template>
 
@@ -27,6 +27,13 @@ export default {
   name: 'App',
   components: {
     FooterGuide,
+  },
+  computed: {
+
+  },
+  mounted () {
+    console.log(this.$route.meta.isShowFooter)
+
   }
 }
 </script>

@@ -3,5 +3,8 @@ export default {
   homeDate: {},
 
   //居家生活的数据
-  lifeDate: {}
+  lifeDate: {},
+
+  //值得买数据
+  topicDate: {}
 }
