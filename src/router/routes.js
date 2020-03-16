@@ -7,6 +7,7 @@ import U from '../pages/U/index.vue'
 import List from '../pages/Item/Lists/List.vue'
 import CateList from '../pages/Item/Lists/CateList.vue'
 
+import LoginSuccess from '../pages/U/LoginSuccess/index.vue'
 
 export default [{
     path: '/home',
@@ -50,10 +51,19 @@ export default [{
       isShowFooter: true
     },
   },
+
   {
     path: '/u',
     component: U
   },
+  {
+    path: '/loginsuccess',
+    component: LoginSuccess,
+    meta: {
+      isShowFooter: true
+    }
+  },
+
   {
     path: '/',
     redirect: 'home'

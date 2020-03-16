@@ -19,3 +19,20 @@ export const reqTopicDate = () => ajax({
   method: 'GET',
   url: BASE + `/topic`
 })
+
+export const reqLogin = (user, pwd) => ajax({
+  method: 'POST',
+  url: BASE + `/login`,
+  data: {
+    user,
+    pwd
+  }
+})
+
+export const reqAutoLogin = () => ajax({
+  method: 'GET',
+  url: `/autoLogin`,
+  headers: {
+    neddToken: true
+  }
+})

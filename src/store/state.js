@@ -6,5 +6,11 @@ export default {
   lifeDate: {},
 
   //值得买数据
-  topicDate: {}
+  topicDate: {},
+  // 用户数据
+  
+  user: {},
+
+  // 存储token
+  token: {}
 }

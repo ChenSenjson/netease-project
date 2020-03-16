@@ -65,7 +65,7 @@ export default {
   name: 'Cart',
   data () {
     return {
-      isLogin: false
+      isLogin: this.$store.state.user.userName
     }
   },
   components: {

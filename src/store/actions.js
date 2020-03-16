@@ -1,12 +1,14 @@
 import {
   reqHomeDate,
   reqLifeDate,
-  reqTopicDate
+  reqTopicDate,
+  reqLogin
 } from '../api/index'
 import {
   REVEIVE_HOME,
   REVEIVE_LIFEDATE,
-  REVEIVE_TOPIC
+  REVEIVE_TOPIC,
+  REVEIVE_USER
 } from '../store/mutation-type'
 
 export default {
@@ -49,4 +51,14 @@ export default {
     }
   },
 
+  async getUserDate({commit},{user,pwd}){
+    console.log('actions', user,pwd);
+    
+    const result = await reqLogin(user,pwd)
+    if (result.code === 0) {
+      const userDate = result.date
+
+      commit(REVEIVE_USER, userDate)
+    }
+  }
 }
